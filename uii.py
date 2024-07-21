@@ -12,19 +12,17 @@ from logic import Logic
 class UII:
     def __init__(self):
         pygame.init()
-        pygame.mixer.init()
         self.logic = Logic()
         self.setting = Setting()
         self.screen = Screen()
         self.map = Map()
-        self.phat = Phat()
-        self.loc = Loc()
-        self.huong = Huong()
-        self.tu = Tu()
+        self.phat = Phat("phat.png")
+        self.loc = Loc("loc.png")
+        self.huong = Huong("Huong.png")
+        self.tu = Tu("Tu.png")
         pygame.display.set_caption("UII")
         pygame.mixer.music.load('nhacnen.mp3')
     def run_game(self):
-        pygame.mixer.music.play(-1)
         while self.setting.running:
             self.setting.clock_set.tick(60)
             self.check_events()
@@ -59,15 +57,12 @@ class UII:
                     if self.logic.check_mouse:
                         self.logic.update()
                     if (self.setting.start_location[0] <= mouse_x <= self.setting.start_location[0]+87) and (self.setting.start_location[1] <= mouse_y <= self.setting.start_location[1]+59):
-                        # pygame.mixer.music.play(-1)
+                        pygame.mixer.music.play(-1)
                         self.setting.Start = True
                         self.logic.clock = True
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     self.logic.logic_reset()
-                   
-
-
 if __name__ == '__main__':
     ai = UII()
     ai.run_game()

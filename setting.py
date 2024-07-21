@@ -4,7 +4,6 @@ import pygame
 class Setting:
     def __init__(self):
         # caidat man hinh
-        pygame.mixer.init()
         self.screen_width = 650
         self.screen_length = 800
         # self.screen = pygame.display.set_mode(
@@ -83,5 +82,3 @@ class Setting:
         self.report_pointy=359
         self.notice_x=285
         self.notice_y=420
-        self.screen_ground_y=500
-        self.playscreen_ground_y=550
